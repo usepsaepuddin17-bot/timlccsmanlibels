@@ -5,40 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4 Pilar - Tim LCC Libels</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: center; width: 90%; max-width: 400px; }
-        h1 { color: #d32f2f; margin-bottom: 1rem; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
-        button { width: 100%; padding: 12px; background-color: #d32f2f; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
-        button:hover { background-color: #b71c1c; }
-        #menuUtama { display: none; }
+        :root {
+            --primary: #d32f2f;
+            --secondary: #1976d2;
+            --success: #388e3c;
+            --bg: #f8f9fa;
+        }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background: linear-gradient(135deg, #d32f2f 0%, #7b1fa2 100%);
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; margin: 0; padding: 20px;
+        }
+        .container { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 30px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+            text-align: center; width: 100%; max-width: 350px;
+            transition: all 0.3s ease;
+        }
+        h1 { color: var(--primary); margin-top: 0; font-size: 24px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        p { color: #666; font-size: 14px; }
+        input { 
+            width: 100%; padding: 15px; margin: 20px 0; 
+            border: 2px solid #ddd; border-radius: 12px; 
+            box-sizing: border-box; font-size: 16px; outline: none;
+        }
+        input:focus { border-color: var(--primary); }
+        button { 
+            width: 100%; padding: 15px; margin: 8px 0; border: none; 
+            border-radius: 12px; font-size: 16px; font-weight: bold; 
+            color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        button:active { transform: scale(0.95); }
+        .btn-main { background: var(--primary); box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3); }
+        .btn-materi { background: var(--secondary); box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3); }
+        .btn-kuis { background: var(--success); box-shadow: 0 4px 15px rgba(56, 142, 60, 0.3); }
+        
+        #menuUtama { display: none; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
     <div id="halamanLogin" class="container">
-        <h1>🇮🇩 4 PILAR</h1>
-        <p>Masukkan Kode Akses Siswa:</p>
-        <input type="password" id="inputKode" placeholder="Kode Akses...">
-        <button onclick="masukAplikasi()">MASUK</button>
+        <div style="font-size: 50px;">🇮🇩</div>
+        <h1>4 PILAR NUSA</h1>
+        <p>Silakan masukkan kode akses tim untuk memulai pembelajaran.</p>
+        <input type="password" id="inputKode" placeholder="Masukkan Kode Rahasia">
+        <button class="btn-main" onclick="masukAplikasi()">MASUK APLIKASI</button>
+        <p style="font-size: 11px; margin-top: 15px;">© Tim LCC SMAN Libels</p>
     </div>
 
     <div id="menuUtama" class="container">
-        <h1>Menu Utama</h1>
-        <p>Selamat Datang di Aplikasi Belajar 4 Pilar</p>
-        <button style="background-color: #1976d2; margin-bottom: 10px;">📖 Baca Materi</button>
-        <button style="background-color: #388e3c;">📝 Latihan Soal</button>
+        <h1>MENU UTAMA</h1>
+        <p>Pilih mode belajar kamu hari ini:</p>
+        <button class="btn-materi" onclick="alert('Fitur Materi Segera Hadir!')">📖 BACA MATERI</button>
+        <button class="btn-kuis" onclick="alert('Fitur Kuis Segera Hadir!')">✍️ LATIHAN SOAL</button>
+        <button style="background: #555;" onclick="location.reload()">🔒 KELUAR</button>
     </div>
 
     <script>
         function masukAplikasi() {
             const kode = document.getElementById('inputKode').value;
-            // GANTI 'LIBELS2024' dengan kode rahasia tim kamu
-            if (kode === "LIBELS2024") {
+            if (kode.toUpperCase() === "LIBELS2024") {
                 document.getElementById('halamanLogin').style.display = 'none';
                 document.getElementById('menuUtama').style.display = 'block';
             } else {
-                alert("Kode salah! Silakan tanya Tim LCC.");
+                alert("Kode Akses Salah!");
             }
         }
     </script>
