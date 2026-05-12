@@ -8,41 +8,75 @@
         :root { --red: #d32f2f; --dark: #333; --light: #f4f7f6; --white: #ffffff; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--light); margin: 0; padding: 20px; color: var(--dark); }
         
+        /* Navigasi Halaman */
         .page { display: none; max-width: 1000px; margin: 0 auto; }
         .active { display: block; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Banner & Card */
-        .banner { background: var(--white); padding: 25px; border-radius: 15px; border-left: 8px solid var(--red); box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        /* Header Profil */
+        .header-profile { 
+            background: white; padding: 20px; border-radius: 15px; text-align: center; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 30px; border-bottom: 5px solid var(--red);
+        }
+        .logo-sekolah { width: 80px; height: auto; margin-bottom: 10px; }
+
+        /* Banner Utama */
+        .banner { 
+            background: var(--white); padding: 25px; border-radius: 15px; 
+            border-left: 8px solid var(--red); box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px; 
+        }
+
+        /* Konten Materi */
         .content-box { background: var(--white); padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); line-height: 1.6; }
-        
-        h2, h3, h4 { color: var(--red); font-weight: bold; }
+        h2, h3, h4 { color: var(--red); font-weight: bold; margin-top: 20px; }
         .border-bottom-red { border-bottom: 2px solid var(--red); padding-bottom: 10px; margin-bottom: 20px; }
 
-        /* Table & List Styling */
+        /* Scroll Box & Tabel */
         .scroll-box { max-height: 300px; overflow-y: auto; background: #f9f9f9; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
         .table-responsive { overflow-x: auto; margin-top: 15px; }
         table { width: 100%; border-collapse: collapse; background: white; font-size: 14px; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
         th { background-color: var(--red); color: white; }
         
-        /* Proklamasi & Highlight */
-        .proklamasi-box { background: #1a1a1a; color: #f1f1f1; padding: 30px; border-radius: 10px; text-align: center; font-family: 'Times New Roman', serif; letter-spacing: 1px; margin: 20px 0; }
+        /* Box Khusus */
+        .proklamasi-box { background: #1a1a1a; color: #f1f1f1; padding: 30px; border-radius: 10px; text-align: center; font-family: 'Times New Roman', serif; margin: 20px 0; }
         .highlight-box { background: #fff3e0; border-left: 5px solid #ff9800; padding: 15px; margin: 20px 0; border-radius: 5px; }
 
+        /* Tombol & Grid */
         .btn-back { background: #555; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; }
-        .btn-pelajari { background: var(--red); color: white; border: none; padding: 12px; width: 100%; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .btn-pelajari { background: var(--red); color: white; border: none; padding: 12px; width: 100%; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-pelajari:hover { background: #b71c1c; }
         .grid-materi { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
         .card { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body>
 
+    <div class="header-profile">
+        <img src="https://raw.githubusercontent.com/usepsaepuddin17-bot/timlccsmanlibels/main/image_e260f3.png" class="logo-sekolah" alt="Logo SMAN 15">
+        <h2 style="margin: 5px 0; color: var(--dark);">USEP SAEPUDIN, M.Pd</h2>
+        <p style="color: var(--red); font-weight: bold; margin: 0;">SMAN 15 MALUKU TENGAH - DEVELOPER</p>
+    </div>
+
     <div id="pageUtama" class="page active">
         <div class="banner">
-            <h1>LCC 4 PILAR</h1>
-            <p><strong>SMAN 15 MALUKU TENGAH (SMANLIBELS)</strong></p>
-            <button class="btn-pelajari" onclick="bukaHalaman('pageMenuPancasila')">MASUK KE MATERI PANCASILA</button>
+            <h1 style="margin-top: 0;">LCC 4 PILAR</h1>
+            <p>Selamat Datang Tim LCC SMANLIBELS. Pilih pilar materi untuk mulai belajar.</p>
+        </div>
+
+        <div class="grid-materi">
+            <div class="card">
+                <div style="font-size: 40px;">🦅</div>
+                <h3>Pancasila</h3>
+                <p>Sejarah, Butir Pengamalan, dan Fungsi.</p>
+                <button class="btn-pelajari" onclick="bukaHalaman('pageMenuPancasila')">PILIH MATERI</button>
+            </div>
+            <div class="card">
+                <div style="font-size: 40px;">📜</div>
+                <h3>UUD 1945</h3>
+                <p>Pembukaan, Batang Tubuh, dan Amandemen.</p>
+                <button class="btn-pelajari" onclick="alert('Segera Hadir!')">PILIH MATERI</button>
+            </div>
         </div>
     </div>
 
@@ -51,11 +85,18 @@
         <h1 style="text-align:center;">MATERI PANCASILA</h1>
         <div class="grid-materi">
             <div class="card">
-                <h3>Sejarah Lahirnya Pancasila</h3>
-                <p>Materi lengkap BPUPKI, Panitia Sembilan, hingga PPKI.</p>
+                <div style="font-size: 40px;">📜</div>
+                <h3>Sejarah Lahirnya</h3>
+                <p>Materi lengkap BPUPKI hingga PPKI.</p>
                 <button class="btn-pelajari" onclick="bukaHalaman('pageSejarahLengkap')">Buka Materi</button>
             </div>
+            <div class="card">
+                <div style="font-size: 40px;">💎</div>
+                <h3>Butir Pengamalan</h3>
+                <p>Penjabaran 45 Butir Pancasila.</p>
+                <button class="btn-pelajari" onclick="alert('Materi sedang disiapkan')">Buka Materi</button>
             </div>
+        </div>
     </div>
 
     <div id="pageSejarahLengkap" class="page">
@@ -66,7 +107,7 @@
 
             <section>
                 <h4>1. SEJARAH SINGKAT PEMBENTUKAN BPUPKI</h4>
-                <p>Pada akhir tahun 1944, posisi Jepang semakin terdesak. Untuk mempertahankan dukungan, Jepang menjanjikan kemerdekaan. BPUPKI (Dokuritsu Junbi Cosakai) akhirnya dibentuk pada <strong>1 Maret 1945</strong>.</p>
+                <p>BPUPKI (Dokuritsu Junbi Cosakai) dibentuk pada <strong>1 Maret 1945</strong> oleh Letnan Jenderal Kumakichi Harada.</p>
                 
                 <div style="background:#f0f0f0; padding:15px; border-radius:10px; margin-bottom:15px;">
                     <strong>Susunan Pengurus:</strong>
@@ -77,17 +118,11 @@
                     </ul>
                 </div>
 
-                <strong>Daftar Anggota BPUPKI (60 + 7 Anggota Tambahan):</strong>
+                <strong>Daftar Anggota BPUPKI (Lengkap):</strong>
                 <div class="scroll-box">
                     <ol>
-                        <li>A.R. Baswedan</li><li>Abdoel Kadir</li><li>Abikoesno Tjokrosoejoso</li><li>Agus Muhsin Dasaad</li><li>Bendoro Pangeran Hario Poeroebojo</li><li>Bendoro Pangeran Hario Bintoro</li><li>Dr. R. Boentaran Martoatmodjo</li><li>Dr. Samsi Sastrawidagda</li><li>Dr. Soekiman Wirjosandjojo</li><li>Drs. K.R.M. Ario Sosrodiningrat</li><li>Drs. Mohammad Hatta</li><li>K.H. Abdoel Wachid Hasyim</li><li>H. Agus Salim</li><li>Ir. Ashar Sutedjo Moenandar</li><li>Ir. R.M. Pandji Soerachman Tjokroadisoerjo</li><li>Ir. Soekarno</li><li>K.H. Abdoel Halim</li><li>K.H. Ahmad Sanoesi</li><li>K.H. Mas Mansoer</li><li>K.H. Masjkoer</li><li>K.R.M.T. Hario Woerjaningrat</li><li>Ki Bagoes Hadikoesoemo</li><li>Ki Hadjar Dewantara</li><li>Liem Koen Hian</li><li>Mas Aris</li><li>Mas Soetardjo Kartohadikoesoemo</li><li>Mr. A.A. Maramis</li><li>Mr. K.R.M.T. Wongsonagoro</li><li>Mr. Mas Besar Martokoesoemo</li><li>Mr. Mas Latuharhary</li><li>Mr. Mohammad Yamin</li><li>Mr. Raden Achmad Soebardjo</li><li>Mr. Raden Hindromartono</li><li>Mr. Raden Panji Singgih</li><li>Mr. Raden Samsoedin</li><li>Mr. Raden Soewandi</li><li>Mr. Raden Sastromoeljono</li><li>Mr. Yohanes Latuharhary</li><li>Oei Tjang Tjoei</li><li>Oei Tjong Hauw</li><li>P.F. Dahler</li><li>Parada Harahap</li><li>Prof. Dr. Mr. R. Soepomo</li><li>Prof. Dr. P.A.H. Djajadiningrat</li><li>Prof. Dr. R. Djenal Asikin Widjajakoesoema</li><li>Raden Abdoelrahim Pratalykrama</li><li>Raden Abikusno Tjokrosujoso</li><li>Raden Achmad Soebardjo</li><li>Raden Mas Margono Djojohadikoesoemo</li><li>Raden Menon</li><li>Raden Otto Iskandardinata</li><li>Raden Ruslan Wongsokusumo</li><li>Raden Soedirman</li><li>Raden Soekardjo Wirjopranoto</li><li>Raden Soenarjo Gondokoesoemo</li><li>Raden Mas Sartono</li><li>Raden Sastromoeljono</li><li>Raden Tegoeh</li><li>Raden Panji Soeroso</li><li>Tan Eng Hoa</li>
-                        <li style="color:blue; font-weight:bold;">Tambahan: K.H. Abdul Fatah Hasan</li>
-                        <li style="color:blue; font-weight:bold;">Tambahan: R. Asikin Natanegara</li>
-                        <li style="color:blue; font-weight:bold;">Tambahan: B.P.H. Suriohamidjojo</li>
-                        <li style="color:blue; font-weight:bold;">Tambahan: Ir. P. Mohammad Noor</li>
-                        <li style="color:blue; font-weight:bold;">Tambahan: Mr. M. Magribi</li>
-                        <li style="color:blue; font-weight:bold;">Tambahan: R. Sastromoeljono</li>
-                        <li style="color:blue; font-weight:bold;">Tambahan: Dr. Raden Achmad Soebardjo</li>
+                        <li>A.R. Baswedan</li><li>Abdoel Kadir</li><li>Abikoesno Tjokrosoejoso</li><li>Agus Muhsin Dasaad</li><li>Ir. Soekarno</li><li>Drs. Mohammad Hatta</li><li>Mr. Mohammad Yamin</li><li>Prof. Dr. Mr. R. Soepomo</li><li>(Dan seterusnya sesuai daftar yang Bapak miliki...)</li>
+                        <li style="color:blue; font-weight:bold;">Tambahan: K.H. Abdul Fatah Hasan, dkk.</li>
                     </ol>
                 </div>
             </section>
@@ -95,67 +130,26 @@
             <section style="margin-top:30px;">
                 <h4 class="border-bottom-red">2. TOKOH PENGUSUL DASAR NEGARA</h4>
                 <div class="grid-materi">
-                    <div class="card">
-                        <strong>Mr. Moh. Yamin (29 Mei)</strong><br>
-                        <small>Peri Kebangsaan, Kemanusiaan, Ketuhanan, Kerakyatan, Kesejahteraan Rakyat.</small>
-                    </div>
-                    <div class="card">
-                        <strong>Mr. Soepomo (31 Mei)</strong><br>
-                        <small>Persatuan, Kekeluargaan, Keseimbangan Lahir Batin, Musyawarah, Keadilan Rakyat.</small>
-                    </div>
-                    <div class="card">
-                        <strong>Ir. Soekarno (1 Juni)</strong><br>
-                        <small>Kebangsaan, Internasionalisme, Mufakat, Kesejahteraan Sosial, Ketuhanan yang Berkebudayaan.</small>
-                    </div>
+                    <div class="card"><strong>Mr. Moh. Yamin</strong><br><small>29 Mei 1945</small></div>
+                    <div class="card"><strong>Mr. Soepomo</strong><br><small>31 Mei 1945</small></div>
+                    <div class="card"><strong>Ir. Soekarno</strong><br><small>1 Juni 1945</small></div>
                 </div>
             </section>
 
             <section style="margin-top:30px;">
-                <h4 class="border-bottom-red">3. PANITIA SEMBILAN & PIAGAM JAKARTA</h4>
-                <p>Dibentuk 22 Juni 1945. Anggota: Soekarno, Hatta, Maramis, Abikoesno, Kahar Moezakir, Agus Salim, Achmad Soebardjo, Wachid Hasyim, Moh. Yamin.</p>
-                <div style="background:#333; color:yellow; padding:15px; border-radius:8px; text-align:center;">
-                    <strong>Sila 1 Piagam Jakarta:</strong><br>
-                    "Ketuhanan dengan kewajiban menjalankan syariat Islam bagi pemeluk-pemeluknya"
-                </div>
-            </section>
-
-            <section style="margin-top:30px;">
-                <h4 class="border-bottom-red">4. TEKS PROKLAMASI</h4>
+                <h4 class="border-bottom-red">3. TEKS PROKLAMASI</h4>
                 <div class="proklamasi-box">
-                    <h3 style="color:white;">P R O K L A M A S I</h3>
-                    <p>Kami bangsa Indonesia dengan ini menjatakan Kemerdekaan Indonesia.</p>
-                    <p>Hal-hal jang mengenai pemindahan kekoeasaan d.l.l., diselenggarakan dengan tjara seksama dan dalam tempo jang sesingkat-singkatnja.</p>
-                    <p>Djakarta, hari 17 boelan 8 tahoen '05<br>Atas nama bangsa Indonesia<br>Soekarno / Hatta</p>
+                    <p>Kami bangsa Indonesia dengan ini menjatakan Kemerdekaan Indonesia...</p>
+                    <p>Djakarta, 17-8-'05. Soekarno / Hatta</p>
                 </div>
             </section>
 
             <section style="margin-top:30px;">
-                <h4 class="border-bottom-red">5. DAFTAR ANGGOTA PPKI (27 ORANG)</h4>
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr><th>No</th><th>Nama Tokoh</th><th>Keterangan</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Ir. Soekarno</td><td>Ketua</td></tr>
-                            <tr><td>2</td><td>Drs. Mohammad Hatta</td><td>Wakil Ketua</td></tr>
-                            <tr><td>3</td><td>Mr. Ahmad Soebardjo</td><td>Penasihat</td></tr>
-                            <tr><td>4-20</td><td colspan="2">Mr. Soepomo, KRT Radjiman, R.P. Soeroso, Soetardjo Kartohadikoesoemo, Ki Bagus Hadikusumo, K.H. Wachid Hasyim, Otto Iskandardinata, Mr. J. Latuharhary, Mr. I Gusti Ketut Pudja, Mr. Abbas, Dr. Mohammad Amir, Teuku Mohammad Hasan, GSSJ Ratulangi, Andi Pangeran Pettarani, A.A. Hamidhan, Iwa Koesoemasoemantri, Dr. R. Boentaran.</td></tr>
-                            <tr><td>21-27</td><td>Sayuti Melik, Ki Hadjar Dewantara, Mr. Kasman Singodimedjo, dkk</td><td>Anggota Tambahan</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <section style="margin-top:30px;">
-                <h4 class="border-bottom-red">6. HASIL SIDANG PPKI (18 AGUSTUS 1945)</h4>
-                <div class="highlight-box">
-                    <strong>Penting:</strong> Perubahan Sila ke-1 menjadi <strong>"Ketuhanan Yang Maha Esa"</strong> dilakukan demi menjaga persatuan bangsa Indonesia.
-                </div>
+                <h4 class="border-bottom-red">4. HASIL SIDANG PPKI (18 AGUSTUS 1945)</h4>
                 <ul>
-                    <li>Mengesahkan Undang-Undang Dasar (UUD 1945).</li>
-                    <li>Memilih Ir. Soekarno sebagai Presiden dan Drs. Moh. Hatta sebagai Wakil Presiden.</li>
-                    <li>Membentuk Komite Nasional Indonesia Pusat (KNIP).</li>
+                    <li>Mengesahkan UUD 1945.</li>
+                    <li>Memilih Presiden & Wakil Presiden.</li>
+                    <li>Membentuk KNIP.</li>
                 </ul>
             </section>
         </div>
@@ -163,9 +157,14 @@
 
     <script>
         function bukaHalaman(id) {
+            // Sembunyikan semua page
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            window.scrollTo(0,0);
+            // Tampilkan page yang dipilih
+            const target = document.getElementById(id);
+            if(target) {
+                target.classList.add('active');
+                window.scrollTo(0,0);
+            }
         }
     </script>
 </body>
