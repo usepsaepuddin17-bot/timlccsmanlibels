@@ -21,14 +21,9 @@
             flex: 1; min-width: 220px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
-        /* Pengaturan Logo */
         .logo-sekolah { 
-            width: 120px; 
-            height: auto; 
-            margin-bottom: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            width: 120px; height: auto; margin-bottom: 10px; display: block;
+            margin-left: auto; margin-right: auto;
         }
 
         .grid-materi { 
@@ -75,7 +70,7 @@
             <div class="card">
                 <h4>Pancasila</h4>
                 <p>Dasar Negara</p>
-                <button class="btn-pelajari" onclick="bukaPancasila()">Pelajari</button>
+                <button class="btn-pelajari" onclick="bukaHalaman('pagePancasila')">Pelajari</button>
             </div>
             <div class="card">
                 <h4>UUD 1945</h4>
@@ -98,74 +93,60 @@
                 <button class="btn-pelajari" style="background:#ffc107; color:black;">Pelajari</button>
             </div>
         </div>
-
-        <div class="simulasi-banner">
-            <h2>SIMULASI LATIHAN SOAL LCC</h2>
-            <p>Uji kecepatan dan ketepatan jawaban Anda di sini.</p>
-            <button class="btn-mulai">MULAI SEKARANG</button>
-        </div>
     </div>
 
     <div id="pagePancasila" class="page">
         <div class="menu-pancasila">
             <h1 style="color:var(--red); font-size: 3em;">PANCASILA</h1>
             <p>Pilih materi yang ingin kamu dalami hari ini.</p>
-            
             <div class="grid-sub-materi">
-            <div class="sub-card">
-                <img src="https://cdn-icons-png.flaticon.com/128/3503/3503940.png" style="width:60px;" alt="icon-sejarah">
-                <h3>Sejarah</h3>
-                <p>Lahirnya Pancasila, BPUPKI, hingga PPKI.</p>
-                <button class="btn-pelajari" onclick="alert('Materi Sejarah sedang disiapkan')">Buka Materi</button>
+                <div class="sub-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/3503/3503940.png" style="width:60px;" alt="icon">
+                    <h3>Sejarah</h3>
+                    <p>Lahirnya Pancasila, BPUPKI, hingga PPKI.</p>
+                    <button class="btn-pelajari" onclick="bukaHalaman('pageIsiSejarah')">Buka Materi</button>
                 </div>
                 <div class="sub-card">
-                <img src="https://cdn-icons-png.flaticon.com/128/10433/10433048.png" style="width:60px;" alt="icon-butir">
-                <h3>Butir Pengamalan</h3>
-                <p>45 Butir-butir pengamalan sesuai TAP MPR.</p>
-                <button class="btn-pelajari" onclick="alert('Materi Butir sedang disiapkan')">Buka Materi</button>
-            </div>
-            <div class="sub-card">
-                <img src="https://cdn-icons-png.flaticon.com/128/1063/1063231.png" style="width:60px;" alt="icon-fungsi">
+                    <img src="https://cdn-icons-png.flaticon.com/128/10433/10433048.png" style="width:60px;" alt="icon">
+                    <h3>Butir Pengamalan</h3>
+                    <button class="btn-pelajari" onclick="alert('Materi sedang disiapkan')">Buka Materi</button>
+                </div>
+                <div class="sub-card">
+                    <img src="https://cdn-icons-png.flaticon.com/128/1063/1063231.png" style="width:60px;" alt="icon">
                     <h3>Fungsi & Kedudukan</h3>
-                <p>Dasar negara, pandangan hidup, dan ideologi.</p>
-                <button class="btn-pelajari" onclick="alert('Materi Fungsi sedang disiapkan')">Buka Materi</button>
+                    <button class="btn-pelajari" onclick="alert('Materi sedang disiapkan')">Buka Materi</button>
+                </div>
             </div>
-        </div> 
+            <button class="btn-back" onclick="bukaHalaman('pageUtama')">Kembali ke Beranda</button>
+        </div>
+    </div>
 
-            <button class="btn-back" onclick="kembaliUtama()">Kembali ke Beranda</button>
+    <div id="pageIsiSejarah" class="page">
+        <div class="menu-pancasila" style="text-align: left;">
+            <button class="btn-back" onclick="bukaHalaman('pagePancasila')" style="margin-top:0; margin-bottom:20px;">← Kembali</button>
+            <h2 style="color:var(--red); border-bottom: 2px solid var(--red);">SEJARAH LAHIRNYA PANCASILA</h2>
+            <p><strong>A. Pembentukan BPUPKI</strong></p>
+            <p>BPUPKI dibentuk pada tanggal 1 Maret 1945 oleh Jepang sebagai janji kemerdekaan...</p>
+            <p><strong>B. Tokoh Pengusul Dasar Negara</strong></p>
+            <ul>
+                <li>Moh. Yamin (29 Mei 1945)</li>
+                <li>Soepomo (31 Mei 1945)</li>
+                <li>Soekarno (1 Juni 1945)</li>
+            </ul>
         </div>
     </div>
 
     <script>
-        function bukaPancasila() {
-            document.getElementById('pageUtama').classList.remove('active');
-            document.getElementById('pagePancasila').classList.add('active');
+        function bukaHalaman(idHalaman) {
+            // Sembunyikan semua page
+            var pages = document.getElementsByClassName('page');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active');
+            }
+            // Tampilkan page yang dipilih
+            document.getElementById(idHalaman).classList.add('active');
             window.scrollTo(0,0);
         }
-
-        function kembaliUtama() {
-            document.getElementById('pagePancasila').classList.remove('active');
-            document.getElementById('pageUtama').classList.add('active');
-            window.scrollTo(0,0);
-        }
-        <div id="pageIsiSejarah" class="page">
-    <button class="btn-back" onclick="bukaHalaman('pagePancasila')">← Kembali ke Menu</button>
-    
-    <div class="menu-pancasila" style="text-align: left;">
-        <h2 style="color:var(--red); border-bottom: 2px solid var(--red);">SEJARAH LAHIRNYA PANCASILA</h2>
-        
-        <p><strong>A. Pembentukan BPUPKI</strong></p>
-        <p>BPUPKI dibentuk pada tanggal 1 Maret 1945 oleh Jepang...</p>
-        
-        <p><strong>B. Tokoh Pengusul Dasar Negara</strong></p>
-        <ul>
-            <li>Moh. Yamin (29 Mei 1945)</li>
-            <li>Soepomo (31 Mei 1945)</li>
-            <li>Soekarno (1 Juni 1945)</li>
-        </ul>
-
-        </div>
-</div>
     </script>
 </body>
 </html>
