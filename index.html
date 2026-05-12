@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Pilar - Tim LCC Libels</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: center; width: 90%; max-width: 400px; }
+        h1 { color: #d32f2f; margin-bottom: 1rem; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 12px; background-color: #d32f2f; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: #b71c1c; }
+        #menuUtama { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="halamanLogin" class="container">
+        <h1>🇮🇩 4 PILAR</h1>
+        <p>Masukkan Kode Akses Siswa:</p>
+        <input type="password" id="inputKode" placeholder="Kode Akses...">
+        <button onclick="masukAplikasi()">MASUK</button>
+    </div>
+
+    <div id="menuUtama" class="container">
+        <h1>Menu Utama</h1>
+        <p>Selamat Datang di Aplikasi Belajar 4 Pilar</p>
+        <button style="background-color: #1976d2; margin-bottom: 10px;">📖 Baca Materi</button>
+        <button style="background-color: #388e3c;">📝 Latihan Soal</button>
+    </div>
+
+    <script>
+        function masukAplikasi() {
+            const kode = document.getElementById('inputKode').value;
+            // GANTI 'LIBELS2024' dengan kode rahasia tim kamu
+            if (kode === "LIBELS2024") {
+                document.getElementById('halamanLogin').style.display = 'none';
+                document.getElementById('menuUtama').style.display = 'block';
+            } else {
+                alert("Kode salah! Silakan tanya Tim LCC.");
+            }
+        }
+    </script>
+</body>
+</html>
